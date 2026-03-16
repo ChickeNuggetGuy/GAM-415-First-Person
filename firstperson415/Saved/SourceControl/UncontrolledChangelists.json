@@ -5,6 +5,13 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
+				"C:/Users/hawki/OneDrive/Documents/Unreal Projects/firstperson415/Content/Materials/Basic_MAT.uasset",
+				"C:/Users/hawki/OneDrive/Documents/Unreal Projects/firstperson415/Content/Splatter/Spat_MAT.uasset",
+				"C:/Users/hawki/OneDrive/Documents/Unreal Projects/firstperson415/Content/Splatter/splatter.uasset",
+				"C:/Users/hawki/OneDrive/Documents/Unreal Projects/firstperson415/Content/Splatter/CustomProjectile.uasset",
+				"C:/Users/hawki/OneDrive/Documents/Unreal Projects/firstperson415/Content/FirstPerson/Blueprints/BP_FirstPersonProjectile.uasset",
+				"C:/Users/hawki/OneDrive/Documents/Unreal Projects/firstperson415/Content/FirstPerson/Blueprints/BP_Weapon_Component.uasset",
+				"C:/Users/hawki/OneDrive/Documents/Unreal Projects/firstperson415/Content/Splatter/Projectile_Color.uasset",
 				"C:/Users/hawki/OneDrive/Documents/Unreal Projects/firstperson415/Content/StarterContent/Architecture/Floor_400x400.uasset",
 				"C:/Users/hawki/OneDrive/Documents/Unreal Projects/firstperson415/Content/StarterContent/Textures/T_Brick_Clay_Beveled_D.uasset",
 				"C:/Users/hawki/OneDrive/Documents/Unreal Projects/firstperson415/Content/StarterContent/Textures/T_Brick_Clay_Beveled_M.uasset",
@@ -268,7 +275,10 @@
 				"C:/Users/hawki/OneDrive/Documents/Unreal Projects/firstperson415/Content/StarterContent/Architecture/Wall_Door_400x400.uasset",
 				"C:/Users/hawki/OneDrive/Documents/Unreal Projects/firstperson415/Content/StarterContent/Architecture/Wall_Window_400x300.uasset",
 				"C:/Users/hawki/OneDrive/Documents/Unreal Projects/firstperson415/Content/StarterContent/Architecture/Wall_Window_400x400.uasset",
-				"C:/Users/hawki/OneDrive/Documents/Unreal Projects/firstperson415/Content/StarterContent/Materials/M_Basic_Floor.uasset"
+				"C:/Users/hawki/OneDrive/Documents/Unreal Projects/firstperson415/Content/StarterContent/Materials/M_Basic_Floor.uasset",
+				"C:/Users/hawki/OneDrive/Documents/Unreal Projects/firstperson415/Content/StarterContent/Audio/Starter_Birds01.uasset",
+				"C:/Users/hawki/OneDrive/Documents/Unreal Projects/firstperson415/Content/StarterContent/Audio/Starter_Wind05.uasset",
+				"C:/Users/hawki/OneDrive/Documents/Unreal Projects/firstperson415/Content/StarterContent/Audio/Starter_Wind06.uasset"
 			]
 		}
 	]

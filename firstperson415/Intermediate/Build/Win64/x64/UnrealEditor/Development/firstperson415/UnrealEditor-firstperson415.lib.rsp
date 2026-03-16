@@ -1,0 +1,16 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-firstperson415.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\hawki\OneDrive\Documents\Unreal Projects\firstperson415\Intermediate\Build\Win64\x64\firstperson415Editor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.InclOrderUnreal5_3.h.obj"
+"C:\Users\hawki\OneDrive\Documents\Unreal Projects\firstperson415\Intermediate\Build\Win64\x64\UnrealEditor\Development\firstperson415\firstperson415.init.gen.cpp.obj"
+"C:\Users\hawki\OneDrive\Documents\Unreal Projects\firstperson415\Intermediate\Build\Win64\x64\UnrealEditor\Development\firstperson415\Projectile.gen.cpp.obj"
+"C:\Users\hawki\OneDrive\Documents\Unreal Projects\firstperson415\Intermediate\Build\Win64\x64\UnrealEditor\Development\firstperson415\firstperson415.cpp.obj"
+"C:\Users\hawki\OneDrive\Documents\Unreal Projects\firstperson415\Intermediate\Build\Win64\x64\UnrealEditor\Development\firstperson415\Projectile.cpp.obj"
+"C:\Users\hawki\OneDrive\Documents\Unreal Projects\firstperson415\Intermediate\Build\Win64\x64\UnrealEditor\Development\firstperson415\PerModuleInline.gen.cpp.obj"
+"C:\Users\hawki\OneDrive\Documents\Unreal Projects\firstperson415\Intermediate\Build\Win64\x64\UnrealEditor\Development\firstperson415\Default.rc2.res"
+/OUT:"C:\Users\hawki\OneDrive\Documents\Unreal Projects\firstperson415\Intermediate\Build\Win64\x64\UnrealEditor\Development\firstperson415\UnrealEditor-firstperson415.lib"
