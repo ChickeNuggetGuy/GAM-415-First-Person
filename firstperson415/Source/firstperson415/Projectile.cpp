@@ -4,6 +4,8 @@
 #include "Engine/Engine.h"
 #include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "NiagaraFunctionLibrary.h"
+#include "NiagaraComponent.h"
 
 // Sets default values
 AProjectile::AProjectile()
@@ -91,52 +93,40 @@ void AProjectile::OnHit(
     const FHitResult& Hit
 )
 {
-    UE_LOG(LogTemp, Warning, TEXT("Projectile OnHit fired"));
-
-    if (BaseMat)
+    if ((OtherActor != nullptr) && (OtherActor != this) && (OtherComp != nullptr) && OtherComp->IsSimulatingPhysics())
     {
-        const float FrameNum = UKismetMathLibrary::RandomFloatInRange(0.0f, 3.0f);
+        OtherComp->AddImpulseAtLocation(GetVelocity() * 100.0f, GetActorLocation());
+        
+        Destroy();
+    }
 
-        const FRotator DecalRotation =
-            Hit.ImpactNormal.Rotation() + FRotator(-90.0f, 0.0f, 0.0f);
-
-        UDecalComponent* Decal = UGameplayStatics::SpawnDecalAtLocation(
-            GetWorld(),
-            BaseMat,
-            FVector(32.0f, 32.0f, 32.0f),
-            Hit.ImpactPoint,
-            Hit.ImpactNormal.Rotation(),
-            10.0f
-        );
-        if (Decal)
+    if (OtherActor != nullptr)
+    {
+        if (colorP)
         {
-            UMaterialInstanceDynamic* MatInstance =
-                Decal->CreateDynamicMaterialInstance();
-
-            if (MatInstance)
+            UNiagaraComponent* particleComp = UNiagaraFunctionLibrary::SpawnSystemAttached(
+                colorP,
+                HitComp,
+                NAME_None,
+                FVector(-20.0, 0.f, 0.f),
+                FRotator(0.f),
+                EAttachLocation::KeepRelativeOffset,
+                true
+            );
+            if (particleComp)
             {
-                MatInstance->SetVectorParameterValue(TEXT("color"), RandColor);
-                MatInstance->SetScalarParameterValue(TEXT("Frame"), FrameNum);
+                particleComp->SetNiagaraVariableLinearColor(FString("RandomColor"), RandColor);
             }
+            BallMesh->DestroyComponent();
+            CollisionComp->BodyInstance.SetCollisionProfileName("NoCollision");
         }
-        else
-        {
-            UE_LOG(LogTemp, Warning, TEXT("Failed to spawn decal"));
-        }
-    }
-    else
-    {
-        UE_LOG(LogTemp, Warning, TEXT("BaseMat is null"));
-    }
 
-    if ((OtherActor != nullptr) && (OtherActor != this) &&
-        (OtherComp != nullptr) && OtherComp->IsSimulatingPhysics())
-    {
-        OtherComp->AddImpulseAtLocation(
-            GetVelocity() * 100.0f,
-            GetActorLocation()
-        );
-    }
+        float frameNum = UKismetMathLibrary::RandomFloatInRange(0.f, 3.f);
 
-    Destroy();
+        auto Decal = UGameplayStatics::SpawnDecalAtLocation(GetWorld(), BaseMat, FVector(UKismetMathLibrary::RandomFloatInRange(20.f, 40.f)), Hit.Location, Hit.Normal.Rotation(), 0.f);
+        auto MatInstance = Decal->CreateDynamicMaterialInstance();
+
+        MatInstance->SetVectorParameterValue("Color", RandColor);
+        MatInstance->SetScalarParameterValue("Frame", frameNum);
+    }
 }

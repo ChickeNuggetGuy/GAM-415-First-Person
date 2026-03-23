@@ -8,6 +8,10 @@
 #include "Materials/MaterialInterface.h"
 #include "Projectile.generated.h"
 
+class USpereComponent;
+class UProjectileMovementComponent;
+class UNiagaraSystem;
+
 UCLASS(Blueprintable, BlueprintType)
 class AProjectile : public AActor
 {
@@ -42,6 +46,9 @@ protected:
 
     UPROPERTY(Transient)
     UMaterialInstanceDynamic* DmiMat;
+
+    UPROPERTY(EditAnywhere)
+    UNiagaraSystem* colorP;
 
 private:
     UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = Projectile,
