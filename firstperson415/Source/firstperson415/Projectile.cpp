@@ -6,7 +6,7 @@
 #include "Kismet/KismetMathLibrary.h"
 #include "NiagaraFunctionLibrary.h"
 #include "NiagaraComponent.h"
-
+#include "PerlinProcTerrain.h"
 // Sets default values
 AProjectile::AProjectile()
 {
@@ -128,5 +128,12 @@ void AProjectile::OnHit(
 
         MatInstance->SetVectorParameterValue("Color", RandColor);
         MatInstance->SetScalarParameterValue("Frame", frameNum);
+
+		APerlinProcTerrain* Procterrain = Cast<APerlinProcTerrain>(OtherActor);
+
+        if (Procterrain)
+        {
+            Procterrain->AlterMesh(Hit.ImpactPoint);
+		}
     }
 }

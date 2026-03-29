@@ -304,6 +304,9 @@
 /I "..\Plugins\FX\Niagara\Source\NiagaraShader\Public"
 /I "..\Plugins\FX\Niagara\Source\NiagaraShader\Internal"
 /I "..\Plugins\FX\Niagara\Source\NiagaraVertexFactories\Public"
+/I "..\Plugins\Runtime\ProceduralMeshComponent\Intermediate\Build\Win64\UnrealEditor\Inc\ProceduralMeshComponent\UHT"
+/I "..\Plugins\Runtime\ProceduralMeshComponent\Source"
+/I "..\Plugins\Runtime\ProceduralMeshComponent\Source\ProceduralMeshComponent\Public"
 /external:W0
 /external:I "ThirdParty\GuidelinesSupportLibrary\GSL-1144\include"
 /external:I "ThirdParty\RapidJSON\1.1.0"
