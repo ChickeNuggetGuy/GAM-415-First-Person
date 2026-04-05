@@ -7,7 +7,7 @@
 // Sets default values
 APerlinProcTerrain::APerlinProcTerrain()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 
 	ProcMesh = CreateDefaultSubobject<UProceduralMeshComponent>("Procedural Mesh");
@@ -23,7 +23,7 @@ void APerlinProcTerrain::BeginPlay()
 	CreateTriangles();
 	ProcMesh->CreateMeshSection(sectionID, Vertices, Triangles, Normals, UV0, UpVertexColors, TArray<FProcMeshTangent>(), true);
 	ProcMesh->SetMaterial(0, Mat);
-	
+
 }
 
 // Called every frame
@@ -54,7 +54,7 @@ void APerlinProcTerrain::CreateVertices()
 		for (int y = 0; y <= YSize; y++)
 		{
 			float z = FMath::PerlinNoise2D(FVector2D(x * noiseScale + 0.1, y * noiseScale + 0.1)) * ZMultiplier;
-			GEngine->AddOnScreenDebugMessage(-1, 999.0f, FColor::Yellow, FString::Printf(TEXT("Z %f"),z));
+			GEngine->AddOnScreenDebugMessage(-1, 999.0f, FColor::Yellow, FString::Printf(TEXT("Z %f"), z));
 			Vertices.Add(FVector(x * scale, y * scale, z));
 			UV0.Add(FVector2D(x * UVScale, y * UVScale));
 
@@ -71,7 +71,7 @@ void APerlinProcTerrain::CreateTriangles()
 		for (int y = 0; y < YSize; y++)
 		{
 			Triangles.Add(vertex);
-			Triangles.Add(vertex +1);
+			Triangles.Add(vertex + 1);
 			Triangles.Add(vertex + YSize + 1);
 			Triangles.Add(vertex + 1);
 			Triangles.Add(vertex + YSize + 2);
@@ -83,4 +83,3 @@ void APerlinProcTerrain::CreateTriangles()
 		vertex++;
 	}
 }
-

@@ -43,10 +43,22 @@
     <ClCompile Include="..\..\Source\firstperson415\firstperson415.h">
       <Filter>Source\firstperson415</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\firstperson415\FirstPersonCharacter.cpp">
+      <Filter>Source\firstperson415</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\firstperson415\FirstPersonCharacter.h">
+      <Filter>Source\firstperson415</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\firstperson415\PerlinProcTerrain.cpp">
       <Filter>Source\firstperson415</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\firstperson415\PerlinProcTerrain.h">
+      <Filter>Source\firstperson415</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\firstperson415\Portal.cpp">
+      <Filter>Source\firstperson415</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\firstperson415\Portal.h">
       <Filter>Source\firstperson415</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\firstperson415\Projectile.cpp">
