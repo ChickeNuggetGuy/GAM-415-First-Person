@@ -20,9 +20,11 @@ class FIRSTPERSON415_API AFirstPersonCharacter : public ACharacter
 public:
 	AFirstPersonCharacter();
 
+	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
 	virtual void SetupPlayerInputComponent(
-		class UInputComponent* PlayerInputComponent) override;
+		UInputComponent* PlayerInputComponent) override;
+	virtual void PawnClientRestart() override;
 
 	UFUNCTION(BlueprintCallable, Category = "Weapon")
 	void SetHasRifle(bool bNewHasRifle);
@@ -40,10 +42,9 @@ public:
 	bool isTeleporting;
 
 protected:
-	virtual void BeginPlay() override;
-
 	void Move(const FInputActionValue& Value);
 	void Look(const FInputActionValue& Value);
+	void AddDefaultMappingContext();
 
 	UPROPERTY(
 		VisibleAnywhere,
@@ -86,6 +87,13 @@ protected:
 		Category = "Input",
 		meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<UInputAction> LookAction;
+
+	UPROPERTY(
+		EditAnywhere,
+		BlueprintReadWrite,
+		Category = "Debug",
+		meta = (AllowPrivateAccess = "true"))
+	bool bLogInputSetup;
 
 private:
 	UPROPERTY(

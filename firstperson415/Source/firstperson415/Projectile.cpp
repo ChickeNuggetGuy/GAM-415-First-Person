@@ -7,7 +7,7 @@
 #include "NiagaraFunctionLibrary.h"
 #include "NiagaraComponent.h"
 #include "PerlinProcTerrain.h"
-// Sets default values
+
 AProjectile::AProjectile()
 {
     PrimaryActorTick.bCanEverTick = false;
@@ -54,6 +54,8 @@ void AProjectile::BeginPlay()
 {
     Super::BeginPlay();
 
+    // Each projectile picks a unique random color that will be applied
+    // to its mesh, splatter decal, and particle effect.
     RandColor = FLinearColor(
         UKismetMathLibrary::RandomFloatInRange(0.0f, 1.0f),
         UKismetMathLibrary::RandomFloatInRange(0.0f, 1.0f),
@@ -93,47 +95,69 @@ void AProjectile::OnHit(
     const FHitResult& Hit
 )
 {
-    if ((OtherActor != nullptr) && (OtherActor != this) && (OtherComp != nullptr) && OtherComp->IsSimulatingPhysics())
+    // Apply a physics impulse to simulating objects and destroy immediately.
+    if ((OtherActor != nullptr) && (OtherActor != this) &&
+        (OtherComp != nullptr) && OtherComp->IsSimulatingPhysics())
     {
-        OtherComp->AddImpulseAtLocation(GetVelocity() * 100.0f, GetActorLocation());
-        
+        OtherComp->AddImpulseAtLocation(
+            GetVelocity() * 100.0f, GetActorLocation()
+        );
+
         Destroy();
     }
 
     if (OtherActor != nullptr)
     {
+        // Spawn a color-matched particle burst, then remove the visible
+        // mesh and disable collision so only the particles remain.
         if (colorP)
         {
-            UNiagaraComponent* particleComp = UNiagaraFunctionLibrary::SpawnSystemAttached(
-                colorP,
-                HitComp,
-                NAME_None,
-                FVector(-20.0, 0.f, 0.f),
-                FRotator(0.f),
-                EAttachLocation::KeepRelativeOffset,
-                true
-            );
+            UNiagaraComponent* particleComp =
+                UNiagaraFunctionLibrary::SpawnSystemAttached(
+                    colorP,
+                    HitComp,
+                    NAME_None,
+                    FVector(-20.0, 0.f, 0.f),
+                    FRotator(0.f),
+                    EAttachLocation::KeepRelativeOffset,
+                    true
+                );
             if (particleComp)
             {
-                particleComp->SetNiagaraVariableLinearColor(FString("RandomColor"), RandColor);
+                particleComp->SetVariableLinearColor(
+                    FName("RandomColor"), RandColor
+                );
             }
             BallMesh->DestroyComponent();
-            CollisionComp->BodyInstance.SetCollisionProfileName("NoCollision");
+            CollisionComp->BodyInstance.SetCollisionProfileName(
+                "NoCollision"
+            );
         }
 
+        // Spawn a randomly sized and framed decal aligned to the
+        // surface normal to leave a paint splatter mark.
         float frameNum = UKismetMathLibrary::RandomFloatInRange(0.f, 3.f);
 
-        auto Decal = UGameplayStatics::SpawnDecalAtLocation(GetWorld(), BaseMat, FVector(UKismetMathLibrary::RandomFloatInRange(20.f, 40.f)), Hit.Location, Hit.Normal.Rotation(), 0.f);
+        auto Decal = UGameplayStatics::SpawnDecalAtLocation(
+            GetWorld(),
+            BaseMat,
+            FVector(UKismetMathLibrary::RandomFloatInRange(20.f, 40.f)),
+            Hit.Location,
+            Hit.Normal.Rotation(),
+            0.f
+        );
         auto MatInstance = Decal->CreateDynamicMaterialInstance();
 
         MatInstance->SetVectorParameterValue("Color", RandColor);
         MatInstance->SetScalarParameterValue("Frame", frameNum);
 
-		APerlinProcTerrain* Procterrain = Cast<APerlinProcTerrain>(OtherActor);
+        // If we hit procedural terrain, deform the mesh at the impact point.
+        APerlinProcTerrain* Procterrain =
+            Cast<APerlinProcTerrain>(OtherActor);
 
         if (Procterrain)
         {
             Procterrain->AlterMesh(Hit.ImpactPoint);
-		}
+        }
     }
 }

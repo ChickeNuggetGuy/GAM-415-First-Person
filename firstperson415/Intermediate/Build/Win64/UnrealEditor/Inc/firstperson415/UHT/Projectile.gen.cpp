@@ -118,31 +118,61 @@ struct Z_Construct_UClass_AProjectile_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/**\n * A paintball-style projectile that splatters a randomly colored decal\n * on impact, spawns a color-matched particle effect, and deforms\n * procedural terrain when hit.\n */" },
+#endif
 		{ "IncludePath", "Projectile.h" },
 		{ "IsBlueprintBase", "true" },
 		{ "ModuleRelativePath", "Projectile.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "A paintball-style projectile that splatters a randomly colored decal\non impact, spawns a color-matched particle effect, and deforms\nprocedural terrain when hit." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ProjectileMat_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Projectile" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Base material used to create a dynamic instance with the random color.\n" },
+#endif
 		{ "ModuleRelativePath", "Projectile.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Base material used to create a dynamic instance with the random color." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BaseMat_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Decals" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Material applied to the splatter decal spawned at the impact point.\n" },
+#endif
 		{ "ModuleRelativePath", "Projectile.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Material applied to the splatter decal spawned at the impact point." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RandColor_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Projectile" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Randomly generated color assigned at spawn, shared across the\n// projectile mesh, impact decal, and particle effect for consistency.\n" },
+#endif
 		{ "ModuleRelativePath", "Projectile.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Randomly generated color assigned at spawn, shared across the\nprojectile mesh, impact decal, and particle effect for consistency." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DmiMat_MetaData[] = {
 		{ "ModuleRelativePath", "Projectile.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_colorP_MetaData[] = {
 		{ "Category", "Projectile" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Niagara particle system spawned on impact for the paint splash.\n" },
+#endif
 		{ "ModuleRelativePath", "Projectile.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Niagara particle system spawned on impact for the paint splash." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CollisionComp_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -241,10 +271,10 @@ AProjectile::~AProjectile() {}
 struct Z_CompiledInDeferFile_FID_Users_hawki_OneDrive_Documents_Unreal_Projects_firstperson415_Source_firstperson415_Projectile_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AProjectile, AProjectile::StaticClass, TEXT("AProjectile"), &Z_Registration_Info_UClass_AProjectile, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AProjectile), 1290373194U) },
+		{ Z_Construct_UClass_AProjectile, AProjectile::StaticClass, TEXT("AProjectile"), &Z_Registration_Info_UClass_AProjectile, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AProjectile), 3268435185U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_hawki_OneDrive_Documents_Unreal_Projects_firstperson415_Source_firstperson415_Projectile_h_2815348412(TEXT("/Script/firstperson415"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_hawki_OneDrive_Documents_Unreal_Projects_firstperson415_Source_firstperson415_Projectile_h_900415979(TEXT("/Script/firstperson415"),
 	Z_CompiledInDeferFile_FID_Users_hawki_OneDrive_Documents_Unreal_Projects_firstperson415_Source_firstperson415_Projectile_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_hawki_OneDrive_Documents_Unreal_Projects_firstperson415_Source_firstperson415_Projectile_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

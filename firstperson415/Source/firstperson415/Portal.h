@@ -1,61 +1,72 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "Components/SceneCaptureComponent2D.h"
-#include "Engine/TextureRenderTarget2D.h"
-#include "Components/BoxComponent.h"
-#include "Components/ArrowComponent.h"
 #include "Portal.generated.h"
 
-class FirstPersonCharacter;
+class UArrowComponent;
+class UBoxComponent;
+class UMaterialInterface;
+class USceneCaptureComponent2D;
+class UStaticMeshComponent;
+class UTextureRenderTarget2D;
 
+/**
+ * A portal actor that teleports pawns to a linked partner portal.
+ * Uses a scene capture component to render a live preview of the
+ * destination on its mesh surface.
+ */
 UCLASS()
 class FIRSTPERSON415_API APortal : public AActor
 {
 	GENERATED_BODY()
-	
-public:	
-	// Sets default values for this actor's properties
+
+public:
 	APortal();
 
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;
 
-public:	
-	// Called every frame
+public:
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UStaticMeshComponent* mesh;
 
+	// Captures the scene from the player's relative perspective to create
+	// the "window into the other side" effect on this portal's surface.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	USceneCaptureComponent2D* sceneCapture;\
+	USceneCaptureComponent2D* sceneCapture;
 
+	// Defines the spawn point and facing direction for teleported actors.
 	UPROPERTY(EditAnywhere)
 	UArrowComponent* rootArrow;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UTextureRenderTarget2D* renderTarget;
 
+	// Overlap volume that triggers teleportation when a pawn enters.
 	UPROPERTY(EditAnywhere)
 	UBoxComponent* boxComp;
 
+	// The linked destination portal. Must be set in the editor.
 	UPROPERTY(EditAnywhere)
 	APortal* OtherPortal;
 
 	UPROPERTY(EditAnywhere)
 	UMaterialInterface* mat;
 
-	UFUNCTION()
-	void OnOverlapBegin(class UPrimitiveComponent* OverlapComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+	// Grace period after teleporting to prevent immediate re-trigger.
+	UPROPERTY(EditAnywhere, Category = "Portal")
+	float TeleportCooldown = 0.5f;
 
 	UFUNCTION()
-	void SetBool(AFirstPersonCharacter* playerComp);
+	void ClearTeleportCooldown(AActor* ActorToClear);
 
-	UFUNCTION()
 	void UpdatePortals();
+
+private:
+	// Actors currently immune to teleportation (recently teleported).
+	TSet<AActor*> ActorsInTeleportCooldown;
 };

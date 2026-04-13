@@ -6,186 +6,71 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "firstperson415/Portal.h"
-#include "Runtime/Engine/Classes/Engine/HitResult.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodePortal() {}
 
 // Begin Cross Module References
 ENGINE_API UClass* Z_Construct_UClass_AActor();
 ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
+ENGINE_API UClass* Z_Construct_UClass_UArrowComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UMaterialInterface_NoRegister();
-ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_USceneCaptureComponent2D_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UTextureRenderTarget2D_NoRegister();
-ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
-FIRSTPERSON415_API UClass* Z_Construct_UClass_AFirstPersonCharacter_NoRegister();
 FIRSTPERSON415_API UClass* Z_Construct_UClass_APortal();
 FIRSTPERSON415_API UClass* Z_Construct_UClass_APortal_NoRegister();
 UPackage* Z_Construct_UPackage__Script_firstperson415();
 // End Cross Module References
 
-// Begin Class APortal Function OnOverlapBegin
-struct Z_Construct_UFunction_APortal_OnOverlapBegin_Statics
+// Begin Class APortal Function ClearTeleportCooldown
+struct Z_Construct_UFunction_APortal_ClearTeleportCooldown_Statics
 {
-	struct Portal_eventOnOverlapBegin_Parms
+	struct Portal_eventClearTeleportCooldown_Parms
 	{
-		UPrimitiveComponent* OverlapComp;
-		AActor* OtherActor;
-		UPrimitiveComponent* OtherComp;
-		int32 OtherBodyIndex;
-		bool bFromSweep;
-		FHitResult SweepResult;
+		AActor* ActorToClear;
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Portal.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_OverlapComp_MetaData[] = {
-		{ "EditInline", "true" },
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_OtherComp_MetaData[] = {
-		{ "EditInline", "true" },
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SweepResult_MetaData[] = {
-		{ "NativeConst", "" },
-	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_OverlapComp;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_OtherActor;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_OtherComp;
-	static const UECodeGen_Private::FIntPropertyParams NewProp_OtherBodyIndex;
-	static void NewProp_bFromSweep_SetBit(void* Obj);
-	static const UECodeGen_Private::FBoolPropertyParams NewProp_bFromSweep;
-	static const UECodeGen_Private::FStructPropertyParams NewProp_SweepResult;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_ActorToClear;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_APortal_OnOverlapBegin_Statics::NewProp_OverlapComp = { "OverlapComp", nullptr, (EPropertyFlags)0x0010000000080080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Portal_eventOnOverlapBegin_Parms, OverlapComp), Z_Construct_UClass_UPrimitiveComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OverlapComp_MetaData), NewProp_OverlapComp_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_APortal_OnOverlapBegin_Statics::NewProp_OtherActor = { "OtherActor", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Portal_eventOnOverlapBegin_Parms, OtherActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_APortal_OnOverlapBegin_Statics::NewProp_OtherComp = { "OtherComp", nullptr, (EPropertyFlags)0x0010000000080080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Portal_eventOnOverlapBegin_Parms, OtherComp), Z_Construct_UClass_UPrimitiveComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OtherComp_MetaData), NewProp_OtherComp_MetaData) };
-const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_APortal_OnOverlapBegin_Statics::NewProp_OtherBodyIndex = { "OtherBodyIndex", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Portal_eventOnOverlapBegin_Parms, OtherBodyIndex), METADATA_PARAMS(0, nullptr) };
-void Z_Construct_UFunction_APortal_OnOverlapBegin_Statics::NewProp_bFromSweep_SetBit(void* Obj)
-{
-	((Portal_eventOnOverlapBegin_Parms*)Obj)->bFromSweep = 1;
-}
-const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_APortal_OnOverlapBegin_Statics::NewProp_bFromSweep = { "bFromSweep", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Portal_eventOnOverlapBegin_Parms), &Z_Construct_UFunction_APortal_OnOverlapBegin_Statics::NewProp_bFromSweep_SetBit, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_APortal_OnOverlapBegin_Statics::NewProp_SweepResult = { "SweepResult", nullptr, (EPropertyFlags)0x0010008008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Portal_eventOnOverlapBegin_Parms, SweepResult), Z_Construct_UScriptStruct_FHitResult, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SweepResult_MetaData), NewProp_SweepResult_MetaData) }; // 4100991306
-const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_APortal_OnOverlapBegin_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APortal_OnOverlapBegin_Statics::NewProp_OverlapComp,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APortal_OnOverlapBegin_Statics::NewProp_OtherActor,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APortal_OnOverlapBegin_Statics::NewProp_OtherComp,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APortal_OnOverlapBegin_Statics::NewProp_OtherBodyIndex,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APortal_OnOverlapBegin_Statics::NewProp_bFromSweep,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APortal_OnOverlapBegin_Statics::NewProp_SweepResult,
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_APortal_ClearTeleportCooldown_Statics::NewProp_ActorToClear = { "ActorToClear", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Portal_eventClearTeleportCooldown_Parms, ActorToClear), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_APortal_ClearTeleportCooldown_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APortal_ClearTeleportCooldown_Statics::NewProp_ActorToClear,
 };
-static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_APortal_OnOverlapBegin_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_APortal_OnOverlapBegin_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APortal, nullptr, "OnOverlapBegin", nullptr, nullptr, Z_Construct_UFunction_APortal_OnOverlapBegin_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_APortal_OnOverlapBegin_Statics::PropPointers), sizeof(Z_Construct_UFunction_APortal_OnOverlapBegin_Statics::Portal_eventOnOverlapBegin_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_APortal_OnOverlapBegin_Statics::Function_MetaDataParams), Z_Construct_UFunction_APortal_OnOverlapBegin_Statics::Function_MetaDataParams) };
-static_assert(sizeof(Z_Construct_UFunction_APortal_OnOverlapBegin_Statics::Portal_eventOnOverlapBegin_Parms) < MAX_uint16);
-UFunction* Z_Construct_UFunction_APortal_OnOverlapBegin()
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_APortal_ClearTeleportCooldown_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_APortal_ClearTeleportCooldown_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APortal, nullptr, "ClearTeleportCooldown", nullptr, nullptr, Z_Construct_UFunction_APortal_ClearTeleportCooldown_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_APortal_ClearTeleportCooldown_Statics::PropPointers), sizeof(Z_Construct_UFunction_APortal_ClearTeleportCooldown_Statics::Portal_eventClearTeleportCooldown_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_APortal_ClearTeleportCooldown_Statics::Function_MetaDataParams), Z_Construct_UFunction_APortal_ClearTeleportCooldown_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_APortal_ClearTeleportCooldown_Statics::Portal_eventClearTeleportCooldown_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_APortal_ClearTeleportCooldown()
 {
 	static UFunction* ReturnFunction = nullptr;
 	if (!ReturnFunction)
 	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_APortal_OnOverlapBegin_Statics::FuncParams);
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_APortal_ClearTeleportCooldown_Statics::FuncParams);
 	}
 	return ReturnFunction;
 }
-DEFINE_FUNCTION(APortal::execOnOverlapBegin)
+DEFINE_FUNCTION(APortal::execClearTeleportCooldown)
 {
-	P_GET_OBJECT(UPrimitiveComponent,Z_Param_OverlapComp);
-	P_GET_OBJECT(AActor,Z_Param_OtherActor);
-	P_GET_OBJECT(UPrimitiveComponent,Z_Param_OtherComp);
-	P_GET_PROPERTY(FIntProperty,Z_Param_OtherBodyIndex);
-	P_GET_UBOOL(Z_Param_bFromSweep);
-	P_GET_STRUCT_REF(FHitResult,Z_Param_Out_SweepResult);
+	P_GET_OBJECT(AActor,Z_Param_ActorToClear);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	P_THIS->OnOverlapBegin(Z_Param_OverlapComp,Z_Param_OtherActor,Z_Param_OtherComp,Z_Param_OtherBodyIndex,Z_Param_bFromSweep,Z_Param_Out_SweepResult);
+	P_THIS->ClearTeleportCooldown(Z_Param_ActorToClear);
 	P_NATIVE_END;
 }
-// End Class APortal Function OnOverlapBegin
-
-// Begin Class APortal Function SetBool
-struct Z_Construct_UFunction_APortal_SetBool_Statics
-{
-	struct Portal_eventSetBool_Parms
-	{
-		AFirstPersonCharacter* playerComp;
-	};
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Portal.h" },
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_playerComp;
-	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_APortal_SetBool_Statics::NewProp_playerComp = { "playerComp", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Portal_eventSetBool_Parms, playerComp), Z_Construct_UClass_AFirstPersonCharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_APortal_SetBool_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APortal_SetBool_Statics::NewProp_playerComp,
-};
-static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_APortal_SetBool_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_APortal_SetBool_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APortal, nullptr, "SetBool", nullptr, nullptr, Z_Construct_UFunction_APortal_SetBool_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_APortal_SetBool_Statics::PropPointers), sizeof(Z_Construct_UFunction_APortal_SetBool_Statics::Portal_eventSetBool_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_APortal_SetBool_Statics::Function_MetaDataParams), Z_Construct_UFunction_APortal_SetBool_Statics::Function_MetaDataParams) };
-static_assert(sizeof(Z_Construct_UFunction_APortal_SetBool_Statics::Portal_eventSetBool_Parms) < MAX_uint16);
-UFunction* Z_Construct_UFunction_APortal_SetBool()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_APortal_SetBool_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(APortal::execSetBool)
-{
-	P_GET_OBJECT(AFirstPersonCharacter,Z_Param_playerComp);
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	P_THIS->SetBool(Z_Param_playerComp);
-	P_NATIVE_END;
-}
-// End Class APortal Function SetBool
-
-// Begin Class APortal Function UpdatePortals
-struct Z_Construct_UFunction_APortal_UpdatePortals_Statics
-{
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Portal.h" },
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_APortal_UpdatePortals_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APortal, nullptr, "UpdatePortals", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_APortal_UpdatePortals_Statics::Function_MetaDataParams), Z_Construct_UFunction_APortal_UpdatePortals_Statics::Function_MetaDataParams) };
-UFunction* Z_Construct_UFunction_APortal_UpdatePortals()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_APortal_UpdatePortals_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(APortal::execUpdatePortals)
-{
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	P_THIS->UpdatePortals();
-	P_NATIVE_END;
-}
-// End Class APortal Function UpdatePortals
+// End Class APortal Function ClearTeleportCooldown
 
 // Begin Class APortal
 void APortal::StaticRegisterNativesAPortal()
 {
 	UClass* Class = APortal::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
-		{ "OnOverlapBegin", &APortal::execOnOverlapBegin },
-		{ "SetBool", &APortal::execSetBool },
-		{ "UpdatePortals", &APortal::execUpdatePortals },
+		{ "ClearTeleportCooldown", &APortal::execClearTeleportCooldown },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -198,8 +83,14 @@ struct Z_Construct_UClass_APortal_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/**\n * A portal actor that teleports pawns to a linked partner portal.\n * Uses a scene capture component to render a live preview of the\n * destination on its mesh surface.\n */" },
+#endif
 		{ "IncludePath", "Portal.h" },
 		{ "ModuleRelativePath", "Portal.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "A portal actor that teleports pawns to a linked partner portal.\nUses a scene capture component to render a live preview of the\ndestination on its mesh surface." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_mesh_MetaData[] = {
 		{ "Category", "Portal" },
@@ -208,8 +99,25 @@ struct Z_Construct_UClass_APortal_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_sceneCapture_MetaData[] = {
 		{ "Category", "Portal" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Captures the scene from the player's relative perspective to create\n// the \"window into the other side\" effect on this portal's surface.\n" },
+#endif
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Portal.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Captures the scene from the player's relative perspective to create\nthe \"window into the other side\" effect on this portal's surface." },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_rootArrow_MetaData[] = {
+		{ "Category", "Portal" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Defines the spawn point and facing direction for teleported actors.\n" },
+#endif
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Portal.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Defines the spawn point and facing direction for teleported actors." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_renderTarget_MetaData[] = {
 		{ "Category", "Portal" },
@@ -217,30 +125,52 @@ struct Z_Construct_UClass_APortal_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_boxComp_MetaData[] = {
 		{ "Category", "Portal" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Overlap volume that triggers teleportation when a pawn enters.\n" },
+#endif
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Portal.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Overlap volume that triggers teleportation when a pawn enters." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_OtherPortal_MetaData[] = {
 		{ "Category", "Portal" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// The linked destination portal. Must be set in the editor.\n" },
+#endif
 		{ "ModuleRelativePath", "Portal.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "The linked destination portal. Must be set in the editor." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_mat_MetaData[] = {
 		{ "Category", "Portal" },
 		{ "ModuleRelativePath", "Portal.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TeleportCooldown_MetaData[] = {
+		{ "Category", "Portal" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Grace period after teleporting to prevent immediate re-trigger.\n" },
+#endif
+		{ "ModuleRelativePath", "Portal.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Grace period after teleporting to prevent immediate re-trigger." },
+#endif
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_mesh;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_sceneCapture;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_rootArrow;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_renderTarget;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_boxComp;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_OtherPortal;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_mat;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_TeleportCooldown;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_APortal_OnOverlapBegin, "OnOverlapBegin" }, // 3936166211
-		{ &Z_Construct_UFunction_APortal_SetBool, "SetBool" }, // 3025722173
-		{ &Z_Construct_UFunction_APortal_UpdatePortals, "UpdatePortals" }, // 241222046
+		{ &Z_Construct_UFunction_APortal_ClearTeleportCooldown, "ClearTeleportCooldown" }, // 2334240046
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -248,19 +178,23 @@ struct Z_Construct_UClass_APortal_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APortal_Statics::NewProp_mesh = { "mesh", nullptr, (EPropertyFlags)0x0010000000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APortal, mesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_mesh_MetaData), NewProp_mesh_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APortal_Statics::NewProp_mesh = { "mesh", nullptr, (EPropertyFlags)0x001000000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APortal, mesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_mesh_MetaData), NewProp_mesh_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APortal_Statics::NewProp_sceneCapture = { "sceneCapture", nullptr, (EPropertyFlags)0x001000000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APortal, sceneCapture), Z_Construct_UClass_USceneCaptureComponent2D_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_sceneCapture_MetaData), NewProp_sceneCapture_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APortal_Statics::NewProp_rootArrow = { "rootArrow", nullptr, (EPropertyFlags)0x0010000000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APortal, rootArrow), Z_Construct_UClass_UArrowComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_rootArrow_MetaData), NewProp_rootArrow_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APortal_Statics::NewProp_renderTarget = { "renderTarget", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APortal, renderTarget), Z_Construct_UClass_UTextureRenderTarget2D_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_renderTarget_MetaData), NewProp_renderTarget_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APortal_Statics::NewProp_boxComp = { "boxComp", nullptr, (EPropertyFlags)0x0010000000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APortal, boxComp), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_boxComp_MetaData), NewProp_boxComp_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APortal_Statics::NewProp_OtherPortal = { "OtherPortal", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APortal, OtherPortal), Z_Construct_UClass_APortal_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OtherPortal_MetaData), NewProp_OtherPortal_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APortal_Statics::NewProp_mat = { "mat", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APortal, mat), Z_Construct_UClass_UMaterialInterface_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_mat_MetaData), NewProp_mat_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APortal_Statics::NewProp_TeleportCooldown = { "TeleportCooldown", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APortal, TeleportCooldown), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TeleportCooldown_MetaData), NewProp_TeleportCooldown_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APortal_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APortal_Statics::NewProp_mesh,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APortal_Statics::NewProp_sceneCapture,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APortal_Statics::NewProp_rootArrow,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APortal_Statics::NewProp_renderTarget,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APortal_Statics::NewProp_boxComp,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APortal_Statics::NewProp_OtherPortal,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APortal_Statics::NewProp_mat,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APortal_Statics::NewProp_TeleportCooldown,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_APortal_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_APortal_Statics::DependentSingletons[])() = {
@@ -303,10 +237,10 @@ APortal::~APortal() {}
 struct Z_CompiledInDeferFile_FID_Users_hawki_OneDrive_Documents_Unreal_Projects_firstperson415_Source_firstperson415_Portal_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_APortal, APortal::StaticClass, TEXT("APortal"), &Z_Registration_Info_UClass_APortal, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APortal), 2445721190U) },
+		{ Z_Construct_UClass_APortal, APortal::StaticClass, TEXT("APortal"), &Z_Registration_Info_UClass_APortal, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APortal), 3879151206U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_hawki_OneDrive_Documents_Unreal_Projects_firstperson415_Source_firstperson415_Portal_h_4250868656(TEXT("/Script/firstperson415"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_hawki_OneDrive_Documents_Unreal_Projects_firstperson415_Source_firstperson415_Portal_h_2374589907(TEXT("/Script/firstperson415"),
 	Z_CompiledInDeferFile_FID_Users_hawki_OneDrive_Documents_Unreal_Projects_firstperson415_Source_firstperson415_Portal_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_hawki_OneDrive_Documents_Unreal_Projects_firstperson415_Source_firstperson415_Portal_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
